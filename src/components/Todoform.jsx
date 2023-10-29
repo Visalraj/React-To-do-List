@@ -40,7 +40,7 @@ export default function Todoform() {
       <div className={styles.Todoitems}>
         {Todovaluelist.map((item, index) => (
           <TodoList key={index} name={item} currentTodos={Todovaluelist} setTodovalueList={setTodovalueList}/>
-          ))}
+        ))}
       </div>
       <FooterTodo count={Todovaluelist.length} />
     </>
