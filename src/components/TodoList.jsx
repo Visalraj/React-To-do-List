@@ -13,11 +13,8 @@ export default function TodoList({ name, currentTodos, setTodovalueList }) {
   return (
     <>
       <li className={styles.TodoList}>
-        <span
-          onClick={Mouseovertodo}
-          className={getcurrentState ? styles["strike-class"] : ""}
-        >
-          {name.itemis}{" "}
+        <span onClick={Mouseovertodo} className={getcurrentState ? styles["strike-class"] : ""} >
+          {name.itemis}
         </span>
         <button onClick={deleteButton} className={styles.Deletebutton}>
           &#10006;
