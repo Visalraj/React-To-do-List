@@ -1,0 +1,83 @@
+body{
+    margin: 0 !important;
+    font-family: sans-serif !important;
+}
+.Header{
+    background: rgb(247, 247, 5);
+    padding:25px !important;
+    text-align: center !important;
+    font-family: sans-serif !important;
+    font-size: 35px !important;
+    font-weight: 500 !important;
+}
+.Textbox{
+    width:500px !important;
+    height:4em !important;
+    margin: 60px 0px 0px 400px !important;
+    border: none;
+    padding: 2px 0px 0px 35px !important;
+    font-size:14px !important;
+    border-radius: 7px !important;
+    box-shadow: 2px 4px 7px rgb(226, 222, 222);
+    outline: none !important;
+}
+.Addbutton{
+    background:  rgb(247, 247, 5);
+    position: absolute !important;
+    margin: 70px 50px 54px -65px !important;
+    padding: 7px 11px !important;
+    border: none;
+    border-radius: 4px !important;
+    box-shadow: 1px -1px rgb(235, 235, 34);
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    font-size: unset !important;
+    font-family: sans-serif !important;
+}
+.Todoitems{
+    height: 340px;
+}
+.TodoList{
+    background: rgb(255, 255, 255);
+    list-style-type: none;
+    width: 31.6em !important;
+    height: 4em !important;
+    margin: 20px 0px 0px 400px !important;
+    padding: 20px !important;
+    font-weight: 500;
+    box-shadow: 2px 4px 7px rgb(226, 222, 222);
+    border-radius: 7px;
+}
+.Deletebutton{
+    color:red;
+    float:right;
+    width: 52px !important;
+    height: 35px !important;
+    border: none;
+    background:  rgb(247, 247, 5);
+    box-shadow: 1px -1px rgb(243, 243, 62);
+    border-radius: 4px;
+    font-weight:bolder;
+}
+.strike-class{
+    text-decoration: line-through;
+}
+.FooterTodo {
+    position: fixed;
+    bottom: 0;
+    background: rgb(247, 247, 5);
+    height: 9vh;
+    width: 100%;
+    padding: 10px;
+    display: flex; 
+    justify-content: space-between; 
+  }
+  
+  .FooterTodo li {
+    list-style-type: none;
+    display: inline-block;
+    /* margin-right: 250px; */
+    margin-left: 600px;
+    font-weight: bold;
+}
+
