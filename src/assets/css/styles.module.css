@@ -34,6 +34,10 @@ body{
     font-size: unset !important;
     font-family: sans-serif !important;
 }
+.ErrorText{
+    margin: 10px 0px 0px 580px;
+    color: #bd2735;
+}
 .Todoitems{
     height: 340px;
 }
@@ -77,8 +81,8 @@ body{
   .FooterTodo li {
     list-style-type: none;
     display: inline-block;
-    /* margin-right: 250px; */
-    margin-left: 600px;
+    margin-right: 250px;
+    margin-left: 250px;
     font-weight: bold;
 }
 

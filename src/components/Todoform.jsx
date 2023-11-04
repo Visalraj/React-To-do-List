@@ -1,14 +1,14 @@
 import { useState } from "react";
 import styles from "./../assets/css/styles.module.css";
 import TodoList from "./TodoList";
-import FooterTodo from "./FooterTodo";
 import shortid from "shortid";
 
-export default function Todoform() {
-  const [Todovalue, setTodovalue] = useState("");
-  const [Todovaluelist, setTodovalueList] = useState([]);
+export default function Todoform({Todovalue,setTodovalue,Todovaluelist,setTodovalueList}) {
+  var [displayWarningMessage,setWarningMessage] = useState(false);
+
   const textValue = (e) => {
     e.preventDefault();
+    setWarningMessage((displayWarningMessage = false));
     if (e.target.value.length <= 40) {
       setTodovalue(e.target.value);
     }
@@ -17,13 +17,23 @@ export default function Todoform() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (Todovalue != "" && Todovaluelist.length < 4) {
+      if (Todovaluelist.some((item) => item.itemis === Todovalue)) {
+        setWarningMessage((displayWarningMessage = true));
+        return displayWarningMessage;
+      }
       setTodovalueList([
         ...Todovaluelist,
-        { itemis: Todovalue,id:shortid.generate()},
+        { itemis: Todovalue, id: shortid.generate(), done: false },
       ]);
       setTodovalue("");
     }
   };
+
+  if(displayWarningMessage){
+    setTimeout(function(){
+      setWarningMessage(displayWarningMessage = !displayWarningMessage);
+    },4000)
+  }
 
   return (
     <>
@@ -35,14 +45,24 @@ export default function Todoform() {
           className={styles.Textbox}
           value={Todovalue}
         />
-        <button className={styles.Addbutton}>Add</button>
+        <button  className={styles.Addbutton}>Add</button>
+        <span
+          style={{ display: displayWarningMessage ? "block" : "none" }}
+          className={styles.ErrorText}
+        >
+          To-Do already exists.
+        </span>
       </form>
       <div className={styles.Todoitems}>
         {Todovaluelist.map((item, index) => (
-          <TodoList key={index} name={item} currentTodos={Todovaluelist} setTodovalueList={setTodovalueList}/>
+          <TodoList
+            key={index}
+            name={item}
+            currentTodos={Todovaluelist}
+            setTodovalueList={setTodovalueList}
+          />
         ))}
       </div>
-      <FooterTodo count={Todovaluelist.length} />
     </>
   );
 }

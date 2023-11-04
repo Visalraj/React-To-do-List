@@ -1,5 +1,7 @@
 import { useState } from "react";
+
 import styles from "./../assets/css/styles.module.css";
+
 export default function TodoList({ name, currentTodos, setTodovalueList }) {
   var [getcurrentState, setcurrentState] = useState(false);
   const deleteButton = (e) => {
@@ -9,6 +11,7 @@ export default function TodoList({ name, currentTodos, setTodovalueList }) {
   const Mouseovertodo = (e) => {
     e.preventDefault();
     setcurrentState(getcurrentState = true);
+    setTodovalueList(currentTodos.filter((item) => item.done = !name.done));
   };
   return (
     <>
@@ -16,7 +19,7 @@ export default function TodoList({ name, currentTodos, setTodovalueList }) {
         <span onClick={Mouseovertodo} className={getcurrentState ? styles["strike-class"] : ""} >
           {name.itemis}
         </span>
-        <button onClick={deleteButton} className={styles.Deletebutton}>
+        <button onClick={deleteButton} className={styles.Deletebutton}>  
           &#10006;
         </button>
       </li>
