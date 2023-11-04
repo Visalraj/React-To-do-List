@@ -31,36 +31,23 @@ export default function Todoform({Todovalue,setTodovalue,Todovaluelist,setTodova
 
   if(displayWarningMessage){
     setTimeout(function(){
-      setWarningMessage(displayWarningMessage = !displayWarningMessage);
+      setWarningMessage(displayWarningMessage = false);
     },4000)
   }
-
+  
+  const sortedTodos = Todovaluelist.slice().sort((a,b)=>Number(a.done)-Number(b.done));
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          onChange={(e) => textValue(e)}
-          placeholder="Add a task..."
-          className={styles.Textbox}
-          value={Todovalue}
-        />
+        <input type="text"  onChange={(e) => textValue(e)} placeholder="Add a task..." className={styles.Textbox} value={Todovalue} />
         <button  className={styles.Addbutton}>Add</button>
-        <span
-          style={{ display: displayWarningMessage ? "block" : "none" }}
-          className={styles.ErrorText}
-        >
+        <span style={{ display: displayWarningMessage ? "block" : "none" }} className={styles.ErrorText}>
           To-Do already exists.
         </span>
       </form>
       <div className={styles.Todoitems}>
-        {Todovaluelist.map((item, index) => (
-          <TodoList
-            key={index}
-            name={item}
-            currentTodos={Todovaluelist}
-            setTodovalueList={setTodovalueList}
-          />
+        {sortedTodos.map((item, index) => (
+          <TodoList key={index} name={item} currentTodos={Todovaluelist} setTodovalueList={setTodovalueList} />
         ))}
       </div>
     </>
